@@ -20,7 +20,7 @@ class Program
         //Score counter:
         //
         //
-        
+
         int score = 0;
 
         //
@@ -87,6 +87,7 @@ class Program
             {
                 Console.WriteLine("Invalid input. Please enter only numbers, Here is another question");
                 Console.WriteLine();
+                //Gives another question
                 i--;
             }
 
@@ -139,7 +140,7 @@ class Program
                         //Prompts Question
                         Console.WriteLine($"{j}. Find the Area of a Square with the length and height of {length}?(Answer in numbers ONLY)");
                         //Finds Square Area
-                        int correctAns = length * length; 
+                        int correctAns = length * length;
                         //Gets User Input
                         int userInput2 = Convert.ToInt32(Console.ReadLine());
                         //Checks Answer, If correct then moves on
@@ -241,7 +242,7 @@ class Program
                         //Prompts Question
                         Console.WriteLine($"{j}. Find the Area of a Triangle with the length {length} and height {height}?(Answer in numbers ONLY)");
                         //Calculates Triangle Area
-                        int correctAns = length * height * 1/2;
+                        int correctAns = length * height * 1 / 2;
                         //Gets and converts user input
                         int userInput2 = Convert.ToInt32(Console.ReadLine());
                         //Checks Answer
@@ -284,16 +285,16 @@ class Program
                         }
                     }
                     break;
-                }
-                
-                //Notify When moving to next section(Happens last)
-                if(j == 10)
-                {
-                    Console.WriteLine($"We will now be moving to the next section");
-                            Console.WriteLine();
-                }
-            
             }
+
+            //Notify When moving to next section(Happens last)
+            if (j == 10)
+            {
+                Console.WriteLine($"We will now be moving to the next section");
+                Console.WriteLine();
+            }
+
+        }
 
         //
         //
@@ -346,7 +347,7 @@ class Program
                     //Gets user input
                     string userInput3 = Console.ReadLine();
                     //convert to lowercase and removes spaces
-                    userInput3 = userInput3.ToLower().Replace(" ", "");
+                    userInput3 = userInput3.ToLower();
                     userInput3 = userInput3.Replace(" ", "");
                     //Checks Answer, If correct:
                     if (correctAns3 == userInput3)
@@ -388,7 +389,7 @@ class Program
                         if (userInput4 == "x" || userInput4 == "0")
                         {
                             Console.WriteLine($"Correct, Answer is {minusAns}");
-                            //score++;
+                            score++;
                             Console.WriteLine();
                         }
                     }
@@ -403,17 +404,36 @@ class Program
 
             }
             //Notify When 5 questions are done
-                if(k == 15)
-                {
-                    Console.WriteLine($"We have now finished. Well Done. Here are the results");
-                            Console.WriteLine();
-                }
+            if (k == 15)
+            {
+                Console.WriteLine($"We have now finished. Well Done. Here are the results");
+                Console.WriteLine();
+            }
         }
-                                
+
         //
         //
         //End Screen:
         //
         //
+
+        //Prompts User with Info If more than 8 Questions Wrong
+        if (score < 8)
+        {
+            Console.WriteLine($"Tough Luck, You got {score} out of 15. Better Luck Next Time.");
+        }
+        //If 8 or More Questions correct:
+        else
+        {
+            Console.WriteLine($"Congrat's, you got {score} out of 15 great Job");
+        }
+
+        //
+        //
+        //Replay or Not:
+        //
+        //
+        
+
     }
 }
