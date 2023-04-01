@@ -12,7 +12,7 @@ class Program
 
         Console.WriteLine("Hello. Welcome to Mrs X's Year 9 Math Class. This quiz is to refresh and test your mental maths on some of our topics.");
         Console.WriteLine();
-        Console.WriteLine("There are 15 questions with 3 sections. Number, Area and Algebra. You will get 2 attempts per question. Good Luck!");
+        Console.WriteLine("There are 15 questions with 3 sections. Number, Area and Algebra. You are allowed 1 attempt per question. Your teacher may/may-not permit a calculator. Good Luck!");
         Console.WriteLine();
         
         //While Loop for If they want to play again
@@ -127,11 +127,11 @@ class Program
                 int operation = rndNums2.Next(1, 3);
 
                 // Random Length and Height Picker
-                // Picks random value between 5 and 20 for both
-                int length = rndNums2.Next(5, 20);
-                int height = rndNums2.Next(5, 20);
+                // Picks random value between 5 and 15 for both
+                int length = rndNums2.Next(5, 15);
+                int height = rndNums2.Next(5, 15);
                 //Third side for triangle(if asked)
-                int sideC = rndNums2.Next(5, 20);
+                int sideC = rndNums2.Next(5, 15);
 
                 switch (shape)
                 {
