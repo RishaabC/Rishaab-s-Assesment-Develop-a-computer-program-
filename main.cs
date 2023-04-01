@@ -14,7 +14,7 @@ class Program
         Console.WriteLine();
         Console.WriteLine("There are 15 questions with 3 sections. Number, Area and Algebra. You are allowed 1 attempt per question. Your teacher may/may-not permit a calculator. Good Luck!");
         Console.WriteLine();
-        
+
         //While Loop for If they want to play again
         bool isReplaying = true;
         while (isReplaying)
@@ -96,12 +96,13 @@ class Program
                 if (numAns == correctAns && i == 5)
                 {
                     Console.WriteLine();
-                    Console.WriteLine($"Correct, Answer is {correctAns}. We will now moving to the next section");
+                    Console.WriteLine($"Correct, Answer is {correctAns}. We will now moving to the Area/Perimeter section");
+                    score++;
                 }
                 else if (i == 5)
                 {
                     Console.WriteLine();
-                    Console.WriteLine($"Incorrect, Answer is {correctAns}. We will now be moving to the next section");
+                    Console.WriteLine($"Incorrect, Answer is {correctAns}. We will now be moving to the Area/Perimeter section");
                 }
                 Console.WriteLine();
 
@@ -255,7 +256,7 @@ class Program
                             //Prompts Question
                             Console.WriteLine($"{j}. Find the AREA of a TRIANGLE with the length {length} and height {height}? (Answer in whole numbers ONLY)");
                             //Calculates Triangle Area
-                            int correctAns = (length * height)/2;
+                            int correctAns = (length * height) / 2;
                             //Gets and converts user input
                             int userInput2 = Convert.ToInt32(Console.ReadLine());
                             //Checks Answer
@@ -287,6 +288,7 @@ class Program
                             //Checks answer
                             if (userInput2 == correctAns)
                             {
+                                Console.WriteLine();
                                 Console.WriteLine($"Correct, the PERIMETER of a TRIANGLE is {correctAns}");
                                 //Adds 1 to the total score
                                 score++;
@@ -295,6 +297,7 @@ class Program
                             //If the answer is incorrect, tell the user.
                             else
                             {
+                                Console.WriteLine();
                                 Console.WriteLine($"Incorrect, the PERIMETER of a TRIANGLE is {correctAns}");
                                 Console.WriteLine();
                             }
@@ -305,7 +308,7 @@ class Program
                 //Notify When moving to next section(Happens last)
                 if (j == 10)
                 {
-                    Console.WriteLine($"We will now be moving to the next section");
+                    Console.WriteLine($"We will now be moving to the Algebra section");
                     Console.WriteLine();
                 }
 
