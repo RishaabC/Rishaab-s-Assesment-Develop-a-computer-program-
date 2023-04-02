@@ -15,6 +15,12 @@ class Program
         Console.WriteLine("There are 15 questions with 3 sections. Number, Area and Algebra. You are allowed 1 attempt per question. Your teacher may/may-not permit a calculator. Good Luck!");
         Console.WriteLine();
 
+        //Asks for Name
+        Console.WriteLine($"Before we Begin, Please enter your full name");
+        Console.WriteLine();
+        //Stores name
+        string name = Console.ReadLine();
+
         //While Loop for If they want to play again
         bool isReplaying = true;
         while (isReplaying)
@@ -26,7 +32,11 @@ class Program
             //
             //
 
-            int score = 0;
+            //Score foreach section and total:
+            int scoreNum = 0;
+            int scoreAP = 0;
+            int scoreAlg = 0;
+            int totalScore = scoreNum + scoreAP + scoreAlg;
 
             //
             //
@@ -71,7 +81,7 @@ class Program
                     {
                         Console.WriteLine();
                         Console.WriteLine($"Correct, answer is {correctAns}.");
-                        score++;
+                        scoreNum++;
                         Console.WriteLine();
                     }
                     //if answer is incorrect
@@ -97,7 +107,7 @@ class Program
                 {
                     Console.WriteLine();
                     Console.WriteLine($"Correct, Answer is {correctAns}. We will now moving to the Area/Perimeter section");
-                    score++;
+                    scoreNum++;
                 }
                 else if (i == 5)
                 {
@@ -155,7 +165,7 @@ class Program
                                 Console.WriteLine();
                                 Console.WriteLine($"Correct, the AREA of a SQAURE is {correctAns}");
                                 //Adds 1 to the total score
-                                score++;
+                                scoreAP++;
                                 Console.WriteLine();
                             }
                             //If userInput isn't correct then it tells the user
@@ -181,7 +191,7 @@ class Program
                                 Console.WriteLine();
                                 Console.WriteLine($"Correct, the PERIMETER of a SQAURE is {correctAns}");
                                 //Adds 1 to the total score
-                                score++;
+                                scoreAP++;
                                 Console.WriteLine();
                             }
                             //If userInput is incorrect then tells user
@@ -210,7 +220,7 @@ class Program
                                 Console.WriteLine();
                                 Console.WriteLine($"Correct, The AREA of a RECTANGLE is {correctAns}");
                                 //Adds 1 to the total score
-                                score++;
+                                scoreAP++;
                                 Console.WriteLine();
                             }
                             //If user input Incorrect,  tells user
@@ -236,7 +246,7 @@ class Program
                                 Console.WriteLine();
                                 Console.WriteLine($"Correct, the PERIMETER of a RECTANGLE is {correctAns}");
                                 //Adds 1 to the total score
-                                score++;
+                                scoreAP++;
                                 Console.WriteLine();
                             }
                             //If User Input is incorrect, tells user
@@ -265,7 +275,7 @@ class Program
                                 Console.WriteLine();
                                 Console.WriteLine($"Correct, the AREA of a TRIANGLE is {correctAns}");
                                 //Adds 1 to the total score
-                                score++;
+                                scoreAP++;
                                 Console.WriteLine();
                             }
                             //If user Input is incorrect, tells the user
@@ -291,7 +301,7 @@ class Program
                                 Console.WriteLine();
                                 Console.WriteLine($"Correct, the PERIMETER of a TRIANGLE is {correctAns}");
                                 //Adds 1 to the total score
-                                score++;
+                                scoreAP++;
                                 Console.WriteLine();
                             }
                             //If the answer is incorrect, tell the user.
@@ -374,7 +384,7 @@ class Program
                         {
                             Console.WriteLine();
                             Console.WriteLine($"Correct, answer is {correctAns3}");
-                            score++;
+                            scoreAlg++;
                             Console.WriteLine();
                         }
                         //If Incorrect:
@@ -403,7 +413,7 @@ class Program
                         {
                             Console.WriteLine();
                             Console.WriteLine($"Correct, answer is {correctAns4}");
-                            score++;
+                            scoreAlg++;
                             Console.WriteLine();
                         }
                         //If person answer x or 0 instead of 1x or 0x
@@ -413,7 +423,7 @@ class Program
                             {
                                 Console.WriteLine();
                                 Console.WriteLine($"Correct, answer is {minusAns}");
-                                score++;
+                                scoreAlg++;
                                 Console.WriteLine();
                             }
                         }
@@ -442,15 +452,23 @@ class Program
             //
             //
 
-            //Prompts User with Info If more than 8 Questions Wrong
-            if (score < 8)
+            
+            Console.WriteLine($"Here are the Results for '{name}':");
+            Console.WriteLine();
+            Console.WriteLine($"For Number, You got {scoreNum}/5");
+            Console.WriteLine($"For Area/Perimeter, You got {scoreAP}/5");
+            Console.WriteLine($"For Algebra, You got {scoreAlg}/5");
+            Console.WriteLine();
+            
+            //Annouces Total Score If failed or Passed(score<8 = fail)
+            if (totalScore < 8)
             {
-                Console.WriteLine($"Tough Luck, You got {score} out of 15. Better luck next time.");
+                Console.WriteLine($"For a overall score, You got {totalScore} out of 15. Better luck next time.");
             }
             //If 8 or More Questions correct:
             else
             {
-                Console.WriteLine($"Congrat's, you got {score} out of 15 Great Job!");
+                Console.WriteLine($"For an overall score, you got {totalScore} out of 15 Great Job!");
             }
 
             //
@@ -466,14 +484,20 @@ class Program
             string userInput5 = Console.ReadLine();
             userInput5 = userInput5.ToUpper();
 
-            //If they Answer Y
+            
             switch (userInput5)
             {
+                //If they Answer Y
                 case "Y":
+                    //Resets all counters
                     i = 0;
                     j = 0;
                     k = 0;
-                    score = 0;
+                    totalScore = 0;
+                    scoreNum = 0;
+                    scoreAP = 0;
+                    scoreAlg = 0;
+                    //Informs User
                     Console.WriteLine();
                     Console.WriteLine("Great lets play again!");
                     Console.WriteLine();
@@ -481,7 +505,10 @@ class Program
                     break;
                 //If they answer No
                 case "N":
+                    //Sets While Loop to false
                     isReplaying = false;
+                    //Informs User
+                    Console.WriteLine();
                     Console.WriteLine("Thanks for playing");
                     break;
                 //If Invalid Input
